@@ -1,0 +1,99 @@
+div.Header{
+    color:white;
+    width:98vw;
+    margin:auto;
+    margin-top:0;
+    display: grid;
+    border-radius: 8px;
+    grid-template-columns: 33vw 33vw 33vw;
+    background:black;
+    height:100px;
+    position: relative;
+    overflow: hidden;
+    div{
+    height: inherit;
+    display: inline-block;
+  } 
+}
+div.LeftHeaderWithSvg{
+  position: relative;
+  svg{
+    fill:white;
+    stroke:white;
+    position: absolute;
+    left:45px;
+    top:37px;
+    transition: 0.2s all cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    &:hover{
+      fill:orange;
+      stroke:orange;
+      cursor: pointer;
+    }
+  }
+  
+}
+div.LeftHeader{
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  transform: rotate(30deg);
+}
+div.RightHeader{
+  a{
+    text-decoration: none;
+    color:white;
+    position: relative;
+    left:30%;
+    font-weight: bolder;
+    padding:45px 15px;
+    transition: 0.2s all cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  a:hover{
+    color:black;
+    background:white;
+  }
+    li{
+      display: inline;
+      list-style-type: none;
+      position: relative;
+      top:35%;
+    }
+  }
+div.colorfulback{
+  position: relative;
+  z-index:1;
+  height:200px !important;
+  width:50px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+div.CenterHeader{
+  &:hover{
+    cursor: pointer;
+  }
+  span{
+    position:relative;
+    left:20px;
+    color:white;
+    font-size:2.7em;
+    top:-20px;
+  }
+  @media screen and (max-width: 650px){
+    span{
+      font-size: 1.8em;
+    }
+  }
+  @media screen and (max-width: 520px){
+    span{
+      font-size: 1.4em;
+    }
+  }
+}
+div.colorfulback.one{
+  background:#FF4040;
+}
+div.colorfulback.two{
+  background:#00873D;
+}
+div.colorfulback.three{
+  background:#3D138D;
+}

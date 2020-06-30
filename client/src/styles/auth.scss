@@ -1,0 +1,75 @@
+div.Login,div.Register {
+    font-family: sans-serif;
+    text-align: center;
+  .container {
+    height: 470px;
+    width: 350px;
+    margin: auto;
+    z-index: 0;
+    border-radius: 3px;
+    margin-top: 150px;
+    position: relative;
+    margin-bottom:30px;
+  }
+  .thirdParty {
+    position: absolute;
+    z-index: 10;
+    top: -50px;
+    left: 25px;
+    box-shadow: 0 2px 10px;
+    background: #a33eb7;
+    width: 300px;
+    border-radius: 3px;
+    height: 150px;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+    transition: all 0.4s ease;
+  }
+  .form {
+    position: relative;
+    top: 130px;
+  }
+  span.inputInfo{
+    color:grey;
+    font-weight: lighter;
+    text-decoration: wavy;
+  }
+  input{
+      width:80%;
+      margin:auto;
+      margin-bottom:10px;
+  }
+  a:hover {
+    color: white;
+    filter: contrast(40%);
+    text-decoration: none;
+  }
+  .content {
+    color: white;
+    position: relative;
+    top: 13px;
+    font-weight: 100 !important;
+    font-size: 2em;
+  }
+  i {
+    margin-left: 22px !important;
+  }
+  .icons {
+    margin-top: 35px;
+    margin-left: -20px;
+  }
+  div.Box{
+      justify-content: center;
+  }
+  img {
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -30;
+    height: 100vh;
+    filter: blur(1px);
+  }
+}
