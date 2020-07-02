@@ -24,20 +24,23 @@ class Login extends React.Component {
         let { username, password } = this.state;
         Axios.post('/auth/login',{username,password})
         .then(response =>{
-          this.props.setUser(response.data.user);
+          let user = response.data.user;
           Axios.post('/getAndClearCookie',{name:'RedirectCookie'})
           .then(response =>{
             let cookie = response.data.cookie;
             console.log(cookie);
             if(cookie){
+              this.props.setUser(user);
               this.props.history.push(cookie);
-             } else {
+            } else {
+              this.props.setUser(user);
               this.props.history.push('/profile');
-              }
-            })
-            .catch(err =>{
-              console.log(err);
-              this.props.history.push('/profile');
+            }
+          })
+          .catch(err =>{
+            console.log(err);
+            this.props.setUser(user);
+            this.props.history.push('/profile');
             })
           })
         .catch(err =>{

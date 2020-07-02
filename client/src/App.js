@@ -52,7 +52,7 @@ class App extends React.Component {
   }
   componentDidMount = () =>{
       this.setState({
-        interval:setInterval(this.setStat,5)
+        interval:setInterval(this.setStat,1)
       })
     window.addEventListener('resize',this.resize);
     Axios.get('/blogs/getAllBlogs')
@@ -169,7 +169,7 @@ class App extends React.Component {
             </Route>
             <Route path="/blogs" exact>
               <div className="Blogs">
-              <Statistic style={{marginLeft:(this.props.width <= 700)?('37%'):('48%')}}>
+              <Statistic style={{marginLeft:(this.props.w <= 700)?('44%'):('47%')}}>
                 <Statistic.Value>{this.state.statBlogs}</Statistic.Value>
                 <Statistic.Label>{this.props.blogs.length === 1 ? ('blog'):('blogs')}</Statistic.Label>
               </Statistic><br />
