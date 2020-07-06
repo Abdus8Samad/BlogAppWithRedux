@@ -4,7 +4,7 @@ import Axios from 'axios';
 import { Icon, Card, Placeholder, Statistic } from 'semantic-ui-react';
 import { Button } from 'grommet';
 import Header from './components/header';
-import { BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect, withRouter, Link} from 'react-router-dom';
 import NewPost from './components/newpost';
 import Footer from './components/footer';
 import Login from './components/login';
@@ -91,7 +91,7 @@ class App extends React.Component {
     const blogsList = (!this.props.blogs.length)?(
       [1,2,3].map(elem =>{
         return(
-          <Card 
+          <Card
             key={elem}
             image={"https://images.unsplash.com/photo-1584824486516-0555a07fc511?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"}
             header={<Placeholder.Line />}
@@ -123,7 +123,7 @@ class App extends React.Component {
                 <Icon name='user' />
                 16 Friends
               </a>}
-            />        
+            />
           )
         } else {
           return (
@@ -137,7 +137,7 @@ class App extends React.Component {
                 <Icon name='user' />
                 16 Friends
               </a>}
-            />        
+            />
           )
         }
       })
@@ -145,7 +145,6 @@ class App extends React.Component {
     return (
       (this.props.loaded.user)?(
         <div className="App">
-        <Router>
             <Header setSidenav={this.setSidenav} sidenav={this.state.sidenav}/>
             <div className="sidebar">
             <img
@@ -156,10 +155,33 @@ class App extends React.Component {
                 <Icon name="home" size="big" />
                 &nbsp;&nbsp;Home
               </li>
-              <li onClick={() => window.location.assign('/blogs/new')}>
+              <li onClick={() => this.props.history.push('/blogs/new')}>
                 <Icon name="braille" size="big" />
                 &nbsp;&nbsp;New Post
               </li>
+              {(this.props.user)?(
+                <span class="loggedIn">
+                  <li>
+                    <Icon name="braille" size="big" />
+                    <Link to='/auth/logout'>Log Out</Link>
+                  </li>
+                  <li>
+                  <Icon name="braille" size="big" />
+                    <Link to='/profile'>Profile</Link>
+                  </li>
+                </span>
+              ):(
+                <span className="notLoggedIn">
+                  <li>
+                    <Icon name="braille" size="big" />
+                    <Link to='/auth/login'>LogIn</Link>
+                  </li>
+                  <li>
+                    <Icon name="braille" size="big" />
+                    <Link to='/auth/login'>SignUp</Link>
+                  </li>
+                </span>
+              )}
             <Button label="close" primary onClick={this.closeSidenav} />
           </div>
           <div className="overlay" onClick={this.closeSidenav} />
@@ -213,8 +235,7 @@ class App extends React.Component {
             </Route>
           </Switch>
           <Footer />
-        </Router>
-        </div>  
+        </div>
       ):(null)
     );
   }
@@ -239,4 +260,4 @@ const mapDispatchToProps = dispatch =>{
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(App));

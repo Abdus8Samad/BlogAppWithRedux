@@ -13,7 +13,7 @@ div.Header{
     div{
     height: inherit;
     display: inline-block;
-  } 
+  }
 }
 div.LeftHeaderWithSvg{
   position: relative;
@@ -30,7 +30,7 @@ div.LeftHeaderWithSvg{
       cursor: pointer;
     }
   }
-  
+
 }
 div.LeftHeader{
   display: grid;
@@ -82,9 +82,9 @@ div.CenterHeader{
       font-size: 1.8em;
     }
   }
-  @media screen and (max-width: 520px){
+  @media screen and (max-width: 535px){
     span{
-      font-size: 1.4em;
+      display:none;
     }
   }
 }

@@ -10,7 +10,6 @@ localauth = require('./auth/localauth'),
 PORT = process.env.PORT || 8080,
 Keys = require('./config/keys'),
 bodyParser = require('body-parser');
-
 mongoose.connect(Keys.mongo.DB_URI,{useNewUrlParser:true,useUnifiedTopology:true,useFindAndModify:false})
 .then(() =>{
     console.log('connected to the db');

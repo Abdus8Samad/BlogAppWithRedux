@@ -54,15 +54,9 @@ class Login extends React.Component {
     componentDidMount = () =>{
       this.props.setLoginError();
     }
-    render(){        
+    render(){
         return (
           <div className="Login">
-            <img
-              src="https://source.unsplash.com/1600x900/?wallpapers"
-              className="background_image"
-              alt="not found"
-              onLoad={() => this.setState({background:'white'})}
-            />
             {(this.state.errors.unAuth)?(
             <Message negative style={{width:'30%',position:'absolute',left:'34%',top:'140px'}}>
               <Message.Header>{this.state.errors.unAuth}</Message.Header>
