@@ -1,12 +1,12 @@
-const mongoose = require('mongoose');
+import { Schema, model } from 'mongoose';
 
-const blogSchema = new mongoose.Schema({
-    title:String,
-    image:String,
-    body:String,
-    author:String
+const blogSchema = new Schema({
+    title: String,
+    image: String,
+    body: String,
+    author: String
 })
 
-const Blog = mongoose.model('blog',blogSchema);
+const Blog = model('blog', blogSchema);
 
-module.exports = Blog;
+export default Blog;
